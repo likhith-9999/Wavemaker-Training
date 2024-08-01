@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create account</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box">
+            <h1>Create Account</h1>
+            <form action="#">
+
+                <!-- name -->
+                <div class="row">
+                    <div class="child">
+                        <label for="fname">First name*</label>
+                        <input class="inpt-width" id="fname" type="text" placeholder="enter your first name" required>
+                    </div>
+                    <div class="child">
+                        <label for="lname">Last name</label>
+                        <input class="inpt-width" id="lname" placeholder="enter your last name"  type="text">
+                    </div>
+                </div>
+
+                <!-- email -->
+                <div class="row">
+                    <div class="child">
+                        <label for="email">Email*</label>
+                        <input class="inpt-width" id="email" type="email" placeholder="enter your email" required>
+                    </div>
+                </div>
+
+
+                <!-- password -->
+                <div class="row">
+                    <div class="child">
+                        <label for="pswd">Password*</label>
+                        <input class="inpt-width" id=""pswd type="password" placeholder="enter your password" required>
+                    </div>
+                    <div class="child">
+                        <label for="cpswd">Confirm Password*</label>
+                        <input class="inpt-width" id="cpswd" type="password" placeholder="enter your password again" required>
+                    </div>
+                </div>
+
+                <!-- gender, hobbies -->
+                <div class="row">
+                    <div class="child">
+                        <label for="gender">Gender</label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label class="txt-inline" for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label class="txt-inline" for="female">Female</label>
+                    </div>
+
+                    <div class="child">
+                        <label for="">Hobbies</label>
+                        <div class="hobbies">
+                            <div>
+                        <input type="checkbox" value="music" id="music">
+                        <label class="txt-inline" for="music">Music</label></div>
+                        <div>
+                        <input type="checkbox" value="sports" id="sports">
+                        <label class="txt-inline" for="sports">Sports</label></div>
+                        <div>
+                        <input type="checkbox" value="travel" id="travel">
+                        <label class="txt-inline" for="travel">Travel</label></div>
+                        <div>
+                        <input type="checkbox" value="movies" id="movies">
+                        <label class="txt-inline" for="movies">Movies</label></div>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- income -->
+                <div class="row">
+                    <div class="child">
+                        <label for="">Source of income</label>
+                        <select class="inpt-width" name="income-src" id="income-src">
+                            <option value="employed">Employed</option>
+                            <option value="unemployed">Unemployed</option>
+                        </select>
+                    </div>
+
+                    <div class="child">
+                        <label for="income">Income</label>
+                        <div class="inpt-width">
+                            <input class="width80" type="range" min="0">
+                            <span>20K</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- pp, age -->
+                <div class="row">
+                    <div class="child">
+                        <label for="pic">Upload Profile Picture</label>
+                        <input class="inpt-width" type="file">
+                    </div>
+
+                    <div class="child">
+                        <label for="age">Age</label>
+                        <input class="inpt-width" type="number" min="18" >
+                    </div>
+                </div>
+
+                <!-- bio -->
+                <div class="row">
+                    <div class="child">
+                        <label for="bio">Bio</label>
+                        <textarea class="inpt-width" name="" id="bio"></textarea>
+                    </div>
+                </div>
+
+            </form>
+            <div class="btn-container">
+                <input class="btn" type="submit" value="Create">
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

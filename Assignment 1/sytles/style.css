@@ -1,0 +1,22 @@
+.caption {
+    text-align: center;
+}
+
+table{
+    margin: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+}
+
+.col-header, td[rowspan], td[colspan], .txt-color{
+    background-color: aliceblue;
+}
+
+.txt-bold{
+    font-weight: bold;
+}
