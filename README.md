@@ -12,13 +12,21 @@ On Small Screen
 <img width="131" alt="image" src="https://github.com/user-attachments/assets/5eab8d4f-7f14-4b12-b4cc-1d9c3e3a0b65">
 
 
+
 **Assignment-3 Calculator**
 
 <img width="482" alt="image" src="https://github.com/user-attachments/assets/825430b0-92c2-487c-9546-2a8a55116b4f">
 
 
 **Assignment-4 Profile page**
+On Large Screen
+
 ![Screenshot (3)](https://github.com/user-attachments/assets/30d9ff4c-074f-46fd-9455-1ff15ce56d6a)
+
+On small Screen
+
+<img width="238" alt="image" src="https://github.com/user-attachments/assets/1b8d8405-f9b2-4f85-88a3-02ae9b1237d1">
+
 
 
 **Assignment-5 Calculator**
