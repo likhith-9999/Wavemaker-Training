@@ -15,3 +15,7 @@ On Small Screen
 **Assignment-3 Calculator**
 
 <img width="482" alt="image" src="https://github.com/user-attachments/assets/825430b0-92c2-487c-9546-2a8a55116b4f">
+
+
+Assignment-4 Profile page
+![Screenshot (3)](https://github.com/user-attachments/assets/30d9ff4c-074f-46fd-9455-1ff15ce56d6a)
