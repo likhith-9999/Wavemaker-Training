@@ -22,4 +22,5 @@ On Small Screen
 
 
 **Assignment-5 Calculator**
+
 <img width="487" alt="image" src="https://github.com/user-attachments/assets/859d6c44-51cf-45d8-bb1a-fc5cb781ec27">
