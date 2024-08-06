@@ -16,7 +16,7 @@
     
     
 
-    <div class="container border col-sm-6 p-0 ">
+    <div class="container border col-sm-6 p-0">
 
         <!-- navbar -->
     <nav class="navbar navbar-expand-sm bg-light w-100">
@@ -34,122 +34,126 @@
     </nav>
 
         <!-- input -->
-        <div class="row justify-content-center p-3">
-            <div class="col">
-                <input type="text" class="w-100">
+        <div class="row justify-content-center p-3 ">
+            <div class="col-12">
+                <input type="text" value="" id="prev" readonly>
             </div>
+            <div class="col-12">
+                <input type="text" class="w-100 p-3" id="display" value="0" onkeydown="typed(event)">
+            </div>
+            
         </div>
 
 
         <!-- row1 -->
-        <div class="row p-5 p-sm-2 justify-content-center">
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">MR</button>
+        <div class="row p-0 p-sm-0 justify-content-center">
+            <div class="col-2 mb-0 p-0 p-md-1">
+                <button type="button" class="btn btn-primary w-100 btn-opac" id="mem-recall">MR</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">MC</button>
+            <div class="col-2 mb-0 p-0 p-md-1">
+                <button type="button" class="btn btn-primary w-100 btn-opac" id="mem-clr">MC</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">MS</button>
+            <div class="col-2 mb-0 p-0 p-md-1">
+                <button type="button" class="btn btn-primary w-100" onclick="memSave()">MS</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">M+</button>
+            <div class="col-2 mb-0 p-0 p-md-1">
+                <button type="button" class="btn btn-primary w-100" onclick="mPlus()">M+</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">M-</button>
+            <div class="col-2 mb-0 p-0 p-md-1">
+                <button type="button" class="btn btn-primary w-100" onclick="mMinus()">M-</button>
             </div>
         </div>
 
         <!-- row2 -->
-        <div class="row p-5 p-sm-2 justify-content-center">
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">&larr;</button>
+        <div class="row p-0 p-sm-0 justify-content-center">
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="backspace()">&larr;</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">CE</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="clrEntry()">CE</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">C</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="clr()">C</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">&#177;</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="plusOrMinus()">&#177;</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">&#8730;</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="root()">&#8730;</button>
             </div>
         </div>
 
         <!-- row3 -->
-        <div class="row p-5 p-sm-2 justify-content-center">
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">7</button>
+        <div class="row p-0 p-sm-0 justify-content-center">
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="display('7')">7</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">8</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="display('8')">8</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">9</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="display('9')">9</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">/</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="display('/')">/</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">%</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="display('%')">%</button>
             </div>
         </div>
 
         <!-- row4 -->
-        <div class="row p-5 p-sm-2 justify-content-center">
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">4</button>
+        <div class="row p-0 p-sm-0 justify-content-center">
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="display('4')">4</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">5</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="display('5')">5</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">6</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="display('6')">6</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">*</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="display('*')">*</button>
             </div>
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100">1/x</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100" onclick="byX()">1/x</button>
             </div>
         </div>
 
         <!-- row 5 -->
-        <div class="row p-5 p-sm-2 justify-content-center">
-            <div class="col-sm-8">
-                <div class="row mb-sm-3">
-                    <div class="col-sm-3 mb-3 mb-sm-0">
-                        <button type="button" class="btn btn-primary w-100 ">1</button>
+        <div class="row p-0 p-sm-0 justify-content-center">
+            <div class="col-8">
+                <div class="row mb-0">
+                    <div class="col-3 mb-0 p-0 p-sm-1">
+                        <button type="button" class="btn btn-primary w-100 " onclick="display('1')">1</button>
                     </div>
-                    <div class="col-sm-3 mb-3 mb-sm-0">
-                        <button type="button" class="btn btn-primary w-100">2</button>
+                    <div class="col-3 mb-0 p-0 p-sm-1">
+                        <button type="button" class="btn btn-primary w-100" onclick="display('2')">2</button>
                     </div>
-                    <div class="col-sm-3 mb-3 mb-sm-0">
-                        <button type="button" class="btn btn-primary w-100">3</button>
+                    <div class="col-3 mb-0 p-0 p-sm-1">
+                        <button type="button" class="btn btn-primary w-100" onclick="display('3')">3</button>
                     </div>
-                    <div class="col-sm-3 mb-3 mb-sm-0">
-                        <button type="button" class="btn btn-primary w-100">-</button>
+                    <div class="col-3 mb-0 p-0 p-sm-1">
+                        <button type="button" class="btn btn-primary w-100" onclick="display('-')">-</button>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <button type="button" class="btn btn-primary w-100">0</button>
+                    <div class="col-6 mb-0 p-0 p-sm-1">
+                        <button type="button" class="btn btn-primary w-100" onclick="display('0')">0</button>
                     </div>
-                    <div class="col-sm-3 mb-3 mb-sm-0">
-                        <button type="button" class="btn btn-primary w-100">.</button>
+                    <div class="col-3 mb-0 p-0 p-sm-1">
+                        <button type="button" class="btn btn-primary w-100" onclick="display('.')">.</button>
                     </div>
-                    <div class="col-sm-3 mb-3 mb-sm-0">
-                        <button type="button" class="btn btn-primary w-100">+</button>
+                    <div class="col-3 mb-0 p-0 p-sm-1">
+                        <button type="button" class="btn btn-primary w-100" onclick="display('+')">+</button>
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm-2 mb-3 mb-sm-0">
-                <button type="button" class="btn btn-primary w-100 h-100 ">=</button>
+            <div class="col-2 mb-0 p-0 p-sm-1">
+                <button type="button" class="btn btn-primary w-100 h-100 " onclick="result()">=</button>
             </div>
         </div>
 
@@ -157,7 +161,7 @@
 
     </div>
 
-
+    <script src="script/script.js"></script>
 </body>
 
 </html>
