@@ -43,6 +43,8 @@ async function submitted(event) {
             const result = await response.json();
             // console.log('Success:', result);
             alert('form submitted');
+
+            myForm.reset();
         }else{
             throw new Error('Network response was not ok');
         }
