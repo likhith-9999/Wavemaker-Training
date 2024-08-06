@@ -11,6 +11,12 @@ On Small Screen
 
 <img width="131" alt="image" src="https://github.com/user-attachments/assets/5eab8d4f-7f14-4b12-b4cc-1d9c3e3a0b65">
 
+using JS
+
+<img width="479" alt="image" src="https://github.com/user-attachments/assets/9c112fa8-2259-4782-a1ee-04084c83e466">
+
+<img width="481" alt="image" src="https://github.com/user-attachments/assets/e7f4a470-f945-47f6-a8ca-001878119298">
+
 
 
 **Assignment-3 Calculator**
