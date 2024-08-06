@@ -23,6 +23,10 @@ using JS
 
 <img width="482" alt="image" src="https://github.com/user-attachments/assets/825430b0-92c2-487c-9546-2a8a55116b4f">
 
+Using JS
+
+<img width="487" alt="image" src="https://github.com/user-attachments/assets/859d6c44-51cf-45d8-bb1a-fc5cb781ec27">
+
 
 **Assignment-4 Profile page**
 On Large Screen
@@ -33,8 +37,3 @@ On small Screen
 
 <img width="238" alt="image" src="https://github.com/user-attachments/assets/1b8d8405-f9b2-4f85-88a3-02ae9b1237d1">
 
-
-
-**Assignment-5 Calculator**
-
-<img width="487" alt="image" src="https://github.com/user-attachments/assets/859d6c44-51cf-45d8-bb1a-fc5cb781ec27">
