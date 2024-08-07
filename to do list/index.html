@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-light-mode border-bottom" id="navbar">
+        <a class="navbar-brand" href="" id="brand-name">To Do List</a>
+        <div class="collapse navbar-collapse">
+            <div class="mx-auto">
+                <form class="form-inline">
+                    <input class="form-control search-bar" type="search" placeholder="Search" aria-label="Search" id="search-input">
+                </form>
+            </div>
+            <button class="btn dark-mode-btn ml-2" id="dark-mode-btn" onclick="darkMode()">Dark Mode</button>
+        </div>
+    </nav>
+
+
+    <div class="container col-md-6 p-5 border rounded " id="box">
+        <div class="row d-flex flex-nowrap justify-content-center mb-5">
+            <div class="col-11 p-0">
+                <input type="text" class="w-100 h-100 rounded-0 px-2" id="task-input" placeholder="Enter task">
+            </div>
+
+            <!-- description -->
+            <dialog id="taskDialog">
+                <form action="">
+                    <label for="task-heading">Enter task</label><br>
+                    <input type="text" placeholder="enter task" id="task-heading" class="w-100"><br>
+                    <label for="task-desc">Description</label><br>
+                    <textarea name="task-desc" id="task-desc" class="w-100"
+                        placeholder="enter description"></textarea><br>
+                    <label for="task-date">Deadline</label><br>
+                    <input type="date" id="task-date"><br>
+                    <label for="priorty">priorty</label><br>
+                    <select name="priorty" id="priorty">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select><br>
+                    <br>
+                    <button type="button" class="btn btn-dark" onclick="addTask()">Save</button>
+                    <button type="button" class="btn btn-dark" onclick="diaclose('taskDialog')">Close</button>
+                    <!-- dialog box  -->
+                    <dialog id="myDialog">
+                        <p>Enter task <i>(task can't be empty)</i></p>
+                        <div>
+                            <button class="btn btn-outline-dark" onclick="diaclose('myDialog')">OK</button>
+                        </div>
+                    </dialog>
+                </form>
+            </dialog>
+
+            <!-- <dialog id="taskDialog">
+                <div class="dialog-content w-100">
+                    <div class="dialog-header d-flex justify-content-between align-items-center p-3">
+                        <h5 class="modal-title">Form Dialog</h5>
+                        <button type="button" class="close" id="close-dialog" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="dialog-body p-3">
+                        <form id="dialogForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="Enter description" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="priority">Priority</label>
+                                <select class="form-control" id="priority" required>
+                                    <option value="Low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="High">High</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="dialog-footer">
+                        <button type="button" class="btn btn-secondary" id="cancel-button">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="save-button">Save</button>
+                    </div>
+                </div>
+            </dialog> -->
+
+
+
+            <div class="col p-0">
+                <button class="btn btn-dark border border-dark w-100 rounded-0" type="submit"
+                    onclick="diashow('taskDialog')" id="addTask-btn"><i class="fa-solid fa-plus"></i></button>
+            </div>
+        </div>
+
+
+        <div>
+            <h3 class="heading">Tasks</h3>
+        </div>
+
+        <div class="container" id="container" ondragover="allowDrop(event)" ondrop="drop(event)">
+            <!-- <div class="row border p-2 mb-2 d-flex flex-nowrap justify-content-center align-items-center">
+                <div class="col-auto"><input type="checkbox"></div>
+                <div class="col-10 text-truncate">Lorem ipsum dolor sit, amet consectetur adipisac</div>
+                <div class="col-auto"><i class="fa-solid fa-delete-left"></i></div>
+            </div>
+
+            <div class="row border p-2 mb-2 d-flex flex-nowrap justify-content-center align-items-center">
+                <div class="col-auto"><input type="checkbox"></div>
+                <div class="col-10 text-truncate">Lorem ipsum dolor sit, amet consectetur adipisac</div>
+                <div class="col-auto"><i class="fa-solid fa-delete-left"></i></div>
+            </div> -->
+
+
+            <!-- <div id="11" class="row border p-2 mb-2 d-flex flex-direction-row">
+                <div class="col-1"><input type="checkbox"></div>
+                <div class="col-6   text-truncate">jqwdkjqwd</div>
+                <div class="col-3 text-center text-truncate">mmmmmmmmmmmmmmmm</div>
+                <div class="col-1"><i class="fa-regular fa-pen-to-square"></i></div>
+                <div class="col-1"><i class="fa-solid fa-delete-left"></i></div>
+            </div> -->
+
+
+
+            <dialog id="editDialog">
+                <form action="">
+                    <label for="task-heading">Enter task</label><br>
+                    <input type="text" placeholder="enter task" id="etask-heading" class="w-100"><br>
+                    <label for="task-desc">Description</label><br>
+                    <textarea name="task-desc" id="etask-desc" class="w-100"
+                        placeholder="enter description"></textarea><br>
+                    <label for="task-date">Deadline</label><br>
+                    <input type="date" id="etask-date"><br>
+                    <label for="priorty">priorty</label><br>
+                    <select name="priorty" id="epriorty">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select><br>
+                    <br>
+                    <button type="button" class="btn btn-dark" onclick="saveEdit()">Edit</button>
+                    <button type="button" class="btn btn-dark" onclick="diaclose('editDialog')">Close</button>
+                    <!-- dialog box  -->
+                    <dialog id="myDialog">
+                        <p>Enter task <i>(task can't be empty)</i></p>
+                        <div>
+                            <button class="btn btn-outline-dark" onclick="diaclose('editDialog')">OK</button>
+                        </div>
+                    </dialog>
+                </form>
+            </dialog>
+
+
+            <dialog id="viewDialog">
+                <!-- <h1>Task</h1> -->
+                <h3>Task:</h3>
+                <p id="viewheading"></p>
+                <h3>Description</h3>
+                <p id="viewdesc"></p>
+                <h3>Date:</h3>
+                <p id="view-date"></p>
+                <h3>Priority</h3>
+                <p id="view-priorty"></p>
+                <button onclick="diaclose('viewDialog')">OK</button>
+            </dialog>
+
+
+        </div>
+
+    </div>
+
+
+
+    <script src="script/script.js"></script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
