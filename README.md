@@ -40,5 +40,11 @@ On small Screen
 
 **To DO App**
 
-![Screenshot (4)](https://github.com/user-attachments/assets/a8e077ff-5e63-43da-96a4-0b53717b71b1)
+![image](https://github.com/user-attachments/assets/52dab7f6-a165-4bc7-a01c-654f6a753044)
+
+
+
+
+**To Do App URL:**
+https://66b9c56c24d30d00097d750b--comfy-semolina-e240af.netlify.app/
 
