@@ -20,35 +20,78 @@
 
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-light-mode border-bottom" id="navbar">
-        <a class="navbar-brand" href="" id="brand-name">To Do List</a>
-        <div class="collapse navbar-collapse">
-            <div class="mx-auto">
-                <form class="form-inline">
-                    <input class="form-control search-bar" type="search" placeholder="Search" aria-label="Search" id="search-input">
-                </form>
-            </div>
-            <button class="btn dark-mode-btn ml-2" id="dark-mode-btn" onclick="darkMode()">Dark Mode</button>
+
+
+    <!-- <nav class="navbar justify-content-between px-5 fixed-top border-bottom" id="navbar">
+        <a class="navbar-brand" id="brand-name">To Do App</a>
+
+
+        <div>
+
+            <button class="btn dark-mode-btn ml-2 border border-dark" onclick="triggerFileInput()">Import <i class="fa-solid fa-file-import"></i></button>
+            
+            <input type="file" id="import-file" class="form-control d-none" accept=".json"
+                onchange="importFromJson()" />
+
+            <button class="btn dark-mode-btn ml-2 border border-dark" onclick="exportToJson()">Export <i class="fa-solid fa-file-export"></i></button>
+            <button class="btn dark-mode-btn ml-2 border border-dark" id="dark-mode-btn" onclick="darkMode()">Dark Mode <i class="fa-solid fa-moon"></i></button>
+        </div>
+
+    </nav> -->
+
+
+
+
+    <nav class="navbar navbar-expand-lg px-5 fixed-top border-bottom" id="navbar">
+        <a class="navbar-brand" id="brand-name">To Do App</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button class="btn dark-mode-btn border border-dark ml-2" onclick="triggerFileInput()">Import <i class="fa-solid fa-file-import"></i></button>
+                </li>
+                <li class="nav-item">
+                    <input type="file" id="import-file" class="form-control d-none" accept=".json" onchange="importFromJson()" />
+                </li>
+                <li class="nav-item">
+                    <button class="btn dark-mode-btn border border-dark ml-2" onclick="exportToJson()">Export <i class="fa-solid fa-file-export"></i></button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn dark-mode-btn border border-dark ml-2" id="dark-mode-btn" onclick="darkMode()">Dark Mode <i class="fa-solid fa-moon"></i></button>
+                </li>
+            </ul>
         </div>
     </nav>
+
 
 
     <div class="container col-md-6 p-5 border rounded " id="box">
         <div class="row d-flex flex-nowrap justify-content-center mb-5">
             <div class="col-11 p-0">
-                <input type="text" class="w-100 h-100 rounded-0 px-2" id="task-input" placeholder="Enter task">
+                <!-- <input type="text" class="w-100 h-100 rounded-0 px-2" id="task-input" placeholder="Enter task"> -->
+                <form class="form-inline">
+                    <input class="form-control search-bar w-100 border rounded-0" type="search"
+                        placeholder="Search Task" aria-label="Search" id="search-input">
+                </form>
             </div>
 
             <!-- description -->
             <dialog id="taskDialog">
                 <form action="">
                     <label for="task-heading">Enter task</label><br>
-                    <input type="text" placeholder="enter task" id="task-heading" class="w-100"><br>
+                    <input type="text" placeholder="enter task" id="task-heading" class="w-100" required><br>
+
                     <label for="task-desc">Description</label><br>
                     <textarea name="task-desc" id="task-desc" class="w-100"
                         placeholder="enter description"></textarea><br>
                     <label for="task-date">Deadline</label><br>
-                    <input type="date" id="task-date"><br>
+                    <input type="date" id="task-date" required><br>
+                    <label for="task-time">Time</label><br>
+                    <input type="time" id="task-time" required><br>
                     <label for="priorty">priorty</label><br>
                     <select name="priorty" id="priorty">
                         <option value="Low">Low</option>
@@ -56,135 +99,123 @@
                         <option value="High">High</option>
                     </select><br>
                     <br>
-                    <button type="button" class="btn btn-dark" onclick="addTask()">Save</button>
-                    <button type="button" class="btn btn-dark" onclick="diaclose('taskDialog')">Close</button>
-                    <!-- dialog box  -->
-                    <dialog id="myDialog">
-                        <p>Enter task <i>(task can't be empty)</i></p>
-                        <div>
-                            <button class="btn btn-outline-dark" onclick="diaclose('myDialog')">OK</button>
-                        </div>
-                    </dialog>
+                    <!-- subtask -->
+                    <div id="subtasks-container"></div>
+                    <div>
+                        <button type="button" class="btn border border-dark" onclick="addSubTask()">Add Subtask</button>
+                    </div>
+                    
+                    <br>
+                    <button type=" button" class="btn border border-dark" onclick="addTask()">Save</button>
+                        <button type="button" class="btn border border-dark" onclick="diaclose('taskDialog')">Close</button>
+
+
+
+                        <!-- dialog box  -->
+                        <dialog id="myDialog">
+                            <p>Enter task <i>(task can't be empty)</i></p>
+                            <div>
+                                <button class="btn btn-outline-dark" onclick="diaclose('myDialog')">OK</button>
+                            </div>
+                        </dialog>
                 </form>
             </dialog>
 
-            <!-- <dialog id="taskDialog">
-                <div class="dialog-content w-100">
-                    <div class="dialog-header d-flex justify-content-between align-items-center p-3">
-                        <h5 class="modal-title">Form Dialog</h5>
-                        <button type="button" class="close" id="close-dialog" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="dialog-body p-3">
-                        <form id="dialogForm">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea class="form-control" id="description" rows="3" placeholder="Enter description" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="date">Date</label>
-                                <input type="date" class="form-control" id="date" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="priority">Priority</label>
-                                <select class="form-control" id="priority" required>
-                                    <option value="Low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="High">High</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="dialog-footer">
-                        <button type="button" class="btn btn-secondary" id="cancel-button">Cancel</button>
-                        <button type="submit" class="btn btn-primary" id="save-button">Save</button>
-                    </div>
-                </div>
-            </dialog> -->
+
 
 
 
             <div class="col p-0">
+
                 <button class="btn btn-dark border border-dark w-100 rounded-0" type="submit"
                     onclick="diashow('taskDialog')" id="addTask-btn"><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
 
 
-        <div>
-            <h3 class="heading">Tasks</h3>
+        <div class="row d-flex flex-nowrap justify-content-between align-items-center mb-3">
+            <div class="col">
+                <h3 class="heading">Tasks</h3>
+            </div>
+            <div class="col-auto">
+                <select class="custom-select" id="sort-by">
+                    <option value="">Sort by...</option>
+                    <option value="priority">Priority</option>
+                    <option value="remaining-time">Remaining Time</option>
+                </select>
+            </div>
         </div>
 
         <div class="container" id="container" ondragover="allowDrop(event)" ondrop="drop(event)">
-            <!-- <div class="row border p-2 mb-2 d-flex flex-nowrap justify-content-center align-items-center">
-                <div class="col-auto"><input type="checkbox"></div>
-                <div class="col-10 text-truncate">Lorem ipsum dolor sit, amet consectetur adipisac</div>
-                <div class="col-auto"><i class="fa-solid fa-delete-left"></i></div>
-            </div>
-
-            <div class="row border p-2 mb-2 d-flex flex-nowrap justify-content-center align-items-center">
-                <div class="col-auto"><input type="checkbox"></div>
-                <div class="col-10 text-truncate">Lorem ipsum dolor sit, amet consectetur adipisac</div>
-                <div class="col-auto"><i class="fa-solid fa-delete-left"></i></div>
-            </div> -->
-
-
-            <!-- <div id="11" class="row border p-2 mb-2 d-flex flex-direction-row">
+            <!-- <div id="11" class="row border p-2 mb-2 d-flex justify-content-between align-items-center"
+                draggable="true">
                 <div class="col-1"><input type="checkbox"></div>
-                <div class="col-6   text-truncate">jqwdkjqwd</div>
-                <div class="col-3 text-center text-truncate">mmmmmmmmmmmmmmmm</div>
+                <div class="col-4 text-truncate" style="text-decoration: none;">1</div>
+                
+                <div class="col-3 text-center text-truncate" style="color: rgb(220, 53, 69);">High</div>
                 <div class="col-1"><i class="fa-regular fa-pen-to-square"></i></div>
                 <div class="col-1"><i class="fa-solid fa-delete-left"></i></div>
+                <br>
+                
+                <div class="col-12 px-5">
+                    <div class="col-4 text-warning border-left">subtakskkkkk</div>
+                </div>
+                
+                
+                
             </div> -->
+            
 
 
 
-            <dialog id="editDialog">
-                <form action="">
-                    <label for="task-heading">Enter task</label><br>
-                    <input type="text" placeholder="enter task" id="etask-heading" class="w-100"><br>
-                    <label for="task-desc">Description</label><br>
-                    <textarea name="task-desc" id="etask-desc" class="w-100"
-                        placeholder="enter description"></textarea><br>
-                    <label for="task-date">Deadline</label><br>
-                    <input type="date" id="etask-date"><br>
-                    <label for="priorty">priorty</label><br>
-                    <select name="priorty" id="epriorty">
-                        <option value="Low">Low</option>
-                        <option value="Medium">Medium</option>
+            
+
+            <!-- Edit Task Dialog -->
+            <dialog id="editTaskDialog">
+                <form method="dialog">
+                    <h4>Edit Task</h4>
+                    <label for="edit-heading">Heading:</label>
+                    <input type="text" id="edit-heading" required /><br />
+
+                    <label for="edit-desc">Description:</label>
+                    <input type="text" id="edit-desc" /><br />
+
+                    <label for="edit-date">Date:</label>
+                    <input type="date" id="edit-date"  required/><br />
+
+                    <label for="edit-time">Time:</label>
+                    <input type="time" id="edit-time" required /><br />
+
+                    <label for="edit-priorty">Priority:</label>
+                    <select id="edit-priorty">
                         <option value="High">High</option>
-                    </select><br>
-                    <br>
-                    <button type="button" class="btn btn-dark" onclick="saveEdit()">Edit</button>
-                    <button type="button" class="btn btn-dark" onclick="diaclose('editDialog')">Close</button>
-                    <!-- dialog box  -->
-                    <dialog id="myDialog">
-                        <p>Enter task <i>(task can't be empty)</i></p>
-                        <div>
-                            <button class="btn btn-outline-dark" onclick="diaclose('editDialog')">OK</button>
-                        </div>
-                    </dialog>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select><br />
+
+                    <div id="edit-subtasks">
+                        <!-- <h5>Subtasks</h5> -->
+                    </div>
+                    <!-- <button type="button" onclick="addEditSubtask()">Add Subtask</button><br> -->
+                    <button class="btn border border-dark" type="button" onclick="saveEdit()">Save</button>
+                    <button class="btn border border-dark" type="button" onclick="cancelEdit()">Cancel</button>
                 </form>
             </dialog>
 
-
-            <dialog id="viewDialog">
-                <!-- <h1>Task</h1> -->
-                <h3>Task:</h3>
-                <p id="viewheading"></p>
-                <h3>Description</h3>
-                <p id="viewdesc"></p>
-                <h3>Date:</h3>
-                <p id="view-date"></p>
-                <h3>Priority</h3>
-                <p id="view-priorty"></p>
-                <button onclick="diaclose('viewDialog')">OK</button>
+            <!-- View Task Dialog -->
+            <dialog id="viewTaskDialog">
+                <h4>View Task</h4>
+                <p id="view-task-heading"></p>
+                <p id="view-task-desc"></p>
+                <p id="view-task-date"></p>
+                <p id="view-task-time"></p>
+                <p id="view-task-priorty"></p>
+                <div id="view-subtasks">
+                    <!-- <h4>Subtasks</h4> -->
+                </div>
+                <button type="button" class="btn border border-dark" onclick="diaclose('viewTaskDialog')">Close</button>
             </dialog>
+
 
 
         </div>
@@ -194,6 +225,8 @@
 
 
     <script src="script/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 
